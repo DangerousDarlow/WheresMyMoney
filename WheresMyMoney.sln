@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheresMyMoney", "WheresMyMoney\WheresMyMoney.csproj", "{0200D3FF-53F8-47F5-8B1B-9CC24D68020E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0200D3FF-53F8-47F5-8B1B-9CC24D68020E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0200D3FF-53F8-47F5-8B1B-9CC24D68020E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0200D3FF-53F8-47F5-8B1B-9CC24D68020E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0200D3FF-53F8-47F5-8B1B-9CC24D68020E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
