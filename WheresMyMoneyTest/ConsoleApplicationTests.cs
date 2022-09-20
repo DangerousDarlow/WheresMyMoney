@@ -18,8 +18,11 @@ public class ConsoleApplicationTests
     [TestCase("load", "Missing command parameters")]
     [TestCase("load account", "Missing account parameter")]
     [TestCase("load account test-account", "Missing file parameter")]
-    public async Task Load_command_fails_if_parameters_are_missing(string args, string scenario) =>
+    public async Task Load_command_fails_if_parameters_are_missing(string args, string scenario)
+    {
         Assert.That(await _consoleApplication.Run(args.Split(' ')), Is.EqualTo(1), $"Incorrect exit code for scenario '{scenario}'");
+        _commandProcessor.Verify(processor => processor.ProcessCommand(It.IsAny<LoadCommand>()), Times.Never);
+    }
 
     [TestCase("load account test-account file1")]
     [TestCase("load account test-account file1 file2")]
