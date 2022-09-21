@@ -36,7 +36,7 @@ internal static class RootCommandExtensions
         var loadCommand = new Command("load", "Load transactions from CSV file");
         loadCommand.AddOption(accountOption);
         loadCommand.AddArgument(filesArgument);
-        loadCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new LoadCommand(account, files)); }, accountOption, filesArgument);
+        loadCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new LoadCommand(Account: account, Files: files)); }, accountOption, filesArgument);
 
         rootCommand.AddCommand(loadCommand);
         return rootCommand;
