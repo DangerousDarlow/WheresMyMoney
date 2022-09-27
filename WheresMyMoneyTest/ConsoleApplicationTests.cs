@@ -15,25 +15,25 @@ public class ConsoleApplicationTests
         _consoleApplication = new ConsoleApplication(_commandProcessor.Object);
     }
 
-    [TestCase("load", "Missing command parameters")]
-    [TestCase("load account", "Missing account parameter")]
-    [TestCase("load account test-account", "Missing file parameter")]
-    public async Task Load_command_fails_if_parameters_are_missing(string args, string scenario)
+    [TestCase("import", "Missing command parameters")]
+    [TestCase("import account", "Missing account parameter")]
+    [TestCase("import account test-account", "Missing file parameter")]
+    public async Task Import_command_fails_if_parameters_are_missing(string args, string scenario)
     {
         Assert.That(await _consoleApplication.Run(args.Split(' ')), Is.EqualTo(1), $"Incorrect exit code for scenario '{scenario}'");
-        _commandProcessor.Verify(processor => processor.ProcessCommand(It.IsAny<LoadCommand>()), Times.Never);
+        _commandProcessor.Verify(processor => processor.ProcessCommand(It.IsAny<ImportCommand>()), Times.Never);
     }
 
-    [TestCase("load account test-account file1")]
-    [TestCase("load account test-account file1 file2")]
-    public async Task Load_command_parses_and_processes_parameters(string args)
+    [TestCase("import account test-account file1")]
+    [TestCase("import account test-account file1 file2")]
+    public async Task Import_command_parses_and_processes_parameters(string args)
     {
-        var commands = new List<LoadCommand>();
+        var commands = new List<ImportCommand>();
         _commandProcessor.Setup(processor => processor.ProcessCommand(Capture.In(commands)));
 
         Assert.That(await _consoleApplication.Run(args.Split(' ')), Is.EqualTo(0));
 
-        _commandProcessor.Verify(processor => processor.ProcessCommand(It.IsAny<LoadCommand>()), Times.Once);
+        _commandProcessor.Verify(processor => processor.ProcessCommand(It.IsAny<ImportCommand>()), Times.Once);
         Assert.Multiple(() =>
         {
             Assert.That(commands[0].Account, Is.EqualTo("test-account"), "Account is incorrect");

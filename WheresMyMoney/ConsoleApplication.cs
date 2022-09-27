@@ -14,14 +14,14 @@ public class ConsoleApplication
     public Task<int> Run(string[] args)
     {
         return new RootCommand("Financial transaction analysis")
-            .AddLoadCommand(_commandProcessor)
+            .AddImportCommand(_commandProcessor)
             .InvokeAsync(args);
     }
 }
 
 internal static class RootCommandExtensions
 {
-    public static RootCommand AddLoadCommand(this RootCommand rootCommand, ICommandProcessor commandProcessor)
+    public static RootCommand AddImportCommand(this RootCommand rootCommand, ICommandProcessor commandProcessor)
     {
         var accountOption = new Option<string>("account", "Account associated with transactions")
         {
@@ -33,12 +33,12 @@ internal static class RootCommandExtensions
             Arity = ArgumentArity.OneOrMore
         };
 
-        var loadCommand = new Command("load", "Load transactions from CSV file");
-        loadCommand.AddOption(accountOption);
-        loadCommand.AddArgument(filesArgument);
-        loadCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new LoadCommand(Account: account, Files: files)); }, accountOption, filesArgument);
+        var importCommand = new Command("import", "Import transactions from CSV file");
+        importCommand.AddOption(accountOption);
+        importCommand.AddArgument(filesArgument);
+        importCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new ImportCommand(Account: account, Files: files)); }, accountOption, filesArgument);
 
-        rootCommand.AddCommand(loadCommand);
+        rootCommand.AddCommand(importCommand);
         return rootCommand;
     }
 }

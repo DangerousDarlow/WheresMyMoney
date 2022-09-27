@@ -2,14 +2,14 @@
 
 public interface ICommandProcessor
 {
-    public Task ProcessCommand(LoadCommand command);
+    public Task ProcessCommand(ImportCommand command);
 }
 
 public class CommandProcessor : ICommandProcessor
 {
-    public Task ProcessCommand(LoadCommand command)
+    public Task ProcessCommand(ImportCommand command)
     {
-        Console.WriteLine("Load");
+        Console.WriteLine("Import");
         return Task.CompletedTask;
     }
 }
