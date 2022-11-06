@@ -1,0 +1,77 @@
+Date,Description,Amount,Tags
+01/01/2022,Acme Salary,"£1,000.00",salary
+01/01/2022,Rent,-£100.00,rent
+02/01/2022,Tesco Store,-£33.98,food tesco
+09/01/2022,Tesco Store,-£33.89,food tesco
+16/01/2022,Tesco Store,-£28.05,food tesco
+23/01/2022,Tesco Store,-£25.87,food tesco
+30/01/2022,Tesco Store,-£29.15,food tesco
+01/02/2022,Acme Salary,"£1,000.00",salary
+01/02/2022,Rent,-£100.00,rent
+06/02/2022,Tesco Store,-£32.60,food tesco
+13/02/2022,Tesco Store,-£41.70,food tesco
+20/02/2022,Tesco Store,-£28.48,food tesco
+27/02/2022,Tesco Store,-£37.48,food tesco
+01/03/2022,Rent,-£100.00,rent
+02/03/2022,Acme Salary,"£1,000.00",salary
+06/03/2022,Tesco Store,-£27.80,food tesco
+13/03/2022,Tesco Store,-£26.28,food tesco
+20/03/2022,Tesco Store,-£26.53,food tesco
+27/03/2022,Tesco Store,-£43.22,food tesco
+01/04/2022,Acme Salary,"£1,000.00",salary
+01/04/2022,Rent,-£100.00,rent
+03/04/2022,Tesco Store,-£46.53,food tesco
+10/04/2022,Tesco Store,-£27.66,food tesco
+17/04/2022,Tesco Store,-£36.02,food tesco
+24/04/2022,Tesco Store,-£22.52,food tesco
+01/05/2022,Acme Salary,£800.00,salary
+01/05/2022,Rent,-£100.00,rent
+01/05/2022,Tesco Store,-£40.73,food tesco
+08/05/2022,Tesco Store,-£44.92,food tesco
+15/05/2022,Tesco Store,-£39.75,food tesco
+22/05/2022,Tesco Store,-£38.50,food tesco
+29/05/2022,Tesco Store,-£33.02,food tesco
+01/06/2022,Acme Salary,"£1,000.00",salary
+01/06/2022,Rent,-£100.00,rent
+05/06/2022,Tesco Store,-£38.46,food tesco
+12/06/2022,Tesco Store,-£21.70,food tesco
+19/06/2022,Tesco Store,-£45.21,food tesco
+26/06/2022,Tesco Store,-£37.99,food tesco
+01/07/2022,Acme Salary,"£1,000.00",salary
+01/07/2022,Rent,-£100.00,rent
+03/07/2022,Tesco Store,-£35.24,food tesco
+10/07/2022,Tesco Store,-£38.71,food tesco
+17/07/2022,Tesco Store,-£44.78,food tesco
+24/07/2022,Tesco Store,-£21.81,food tesco
+31/07/2022,Tesco Store,-£25.72,food tesco
+01/08/2022,Acme Salary,"£1,000.00",salary
+01/08/2022,Rent,-£100.00,rent
+07/08/2022,Tesco Store,-£40.50,food tesco
+14/08/2022,Tesco Store,-£25.22,food tesco
+21/08/2022,Tesco Store,-£47.39,food tesco
+28/08/2022,Tesco Store,-£31.50,food tesco
+01/09/2022,Acme Salary,"£1,000.00",salary
+01/09/2022,Rent,-£100.00,rent
+04/09/2022,Tesco Store,-£45.62,food tesco
+11/09/2022,Tesco Store,-£33.88,food tesco
+18/09/2022,Tesco Store,-£43.37,food tesco
+25/09/2022,Tesco Store,-£25.67,food tesco
+01/10/2022,Acme Salary,"£1,000.00",salary
+01/10/2022,Rent,-£100.00,rent
+02/10/2022,Tesco Store,-£39.29,food tesco
+09/10/2022,Tesco Store,-£32.94,food tesco
+16/10/2022,Tesco Store,-£33.40,food tesco
+23/10/2022,Tesco Store,-£40.18,food tesco
+30/10/2022,Tesco Store,-£48.79,food tesco
+01/11/2022,Acme Salary,"£1,000.00",salary
+01/11/2022,Rent,-£100.00,rent
+06/11/2022,Tesco Store,-£48.98,food tesco
+13/11/2022,Tesco Store,-£36.14,food tesco
+20/11/2022,Tesco Store,-£35.78,food tesco
+27/11/2022,Tesco Store,-£43.49,food tesco
+01/12/2022,Acme Salary,"£1,000.00",salary
+01/12/2022,Rent,-£100.00,rent
+04/12/2022,Tesco Store,-£27.97,food tesco
+11/12/2022,Tesco Store,-£47.57,food tesco
+18/12/2022,Tesco Store,-£30.60,food tesco
+25/12/2022,Tesco Store,-£49.70,food tesco
