@@ -4,7 +4,7 @@ namespace WheresMyMoney;
 
 public class ConsoleApplication
 {
-    private Dictionary<Type, ICommandProcessor> _commandProcessors;
+    private readonly Dictionary<Type, ICommandProcessor> _commandProcessors;
 
     public ConsoleApplication(IEnumerable<ICommandProcessor> commandProcessors)
     {
@@ -37,7 +37,7 @@ internal static class RootCommandExtensions
         var importCommand = new Command("import", "Import transactions from CSV file");
         importCommand.AddOption(accountOption);
         importCommand.AddArgument(filesArgument);
-        importCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new ImportCommand(Account: account, Files: files)); }, accountOption, filesArgument);
+        importCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new ImportCommand(account, files)); }, accountOption, filesArgument);
 
         rootCommand.AddCommand(importCommand);
         return rootCommand;

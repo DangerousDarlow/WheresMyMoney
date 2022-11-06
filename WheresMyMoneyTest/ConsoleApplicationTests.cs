@@ -4,8 +4,8 @@ namespace WheresMyMoneyTest;
 
 public class ConsoleApplicationTests
 {
-    private MockImportCommandProcessor _importCommandProcessor = null!;
     private ConsoleApplication _consoleApplication = null!;
+    private MockImportCommandProcessor _importCommandProcessor = null!;
 
     [SetUp]
     public void Setup()
