@@ -4,24 +4,25 @@ namespace WheresMyMoney;
 
 public class ConsoleApplication
 {
-    private readonly ICommandProcessor _commandProcessor;
+    private Dictionary<Type, ICommandProcessor> _commandProcessors;
 
-    public ConsoleApplication(ICommandProcessor commandProcessor)
+    public ConsoleApplication(IEnumerable<ICommandProcessor> commandProcessors)
     {
-        _commandProcessor = commandProcessor;
+        _commandProcessors = commandProcessors.ToDictionary(processor => processor.ProcessesCommand);
     }
 
     public Task<int> Run(string[] args)
     {
         return new RootCommand("Financial transaction analysis")
-            .AddImportCommand(_commandProcessor)
+            .AddImportCommand(_commandProcessors[typeof(ImportCommand)] as ICommandProcessor<ImportCommand> ??
+                              throw new InvalidOperationException("Unable to cast command processor to templated type"))
             .InvokeAsync(args);
     }
 }
 
 internal static class RootCommandExtensions
 {
-    public static RootCommand AddImportCommand(this RootCommand rootCommand, ICommandProcessor commandProcessor)
+    public static RootCommand AddImportCommand(this RootCommand rootCommand, ICommandProcessor<ImportCommand> commandProcessor)
     {
         var accountOption = new Option<string>("account", "Account associated with transactions")
         {

@@ -2,14 +2,16 @@
 
 public interface ICommandProcessor
 {
-    public Task ProcessCommand(ImportCommand command);
+    Type ProcessesCommand { get; }
 }
 
-public class CommandProcessor : ICommandProcessor
+public interface ICommandProcessor<in T>
 {
-    public Task ProcessCommand(ImportCommand command)
-    {
-        Console.WriteLine("Import");
-        return Task.CompletedTask;
-    }
+    Task ProcessCommand(T command);
+}
+
+public abstract class CommandProcessor<T> : ICommandProcessor, ICommandProcessor<T>
+{
+    public Type ProcessesCommand { get; } = typeof(T);
+    public abstract Task ProcessCommand(T command);
 }
