@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using WheresMyMoney.Import;
 
 namespace WheresMyMoney;
 
@@ -8,6 +9,7 @@ public static class DependencyInjection
     {
         serviceCollection.AddSingleton<ConsoleApplication>();
         serviceCollection.AddSingleton<ICommandProcessor, ImportCommandProcessor>();
+        serviceCollection.AddSingleton<IStreamReaderFactory, StreamReaderFactory>();
         return serviceCollection;
     }
 }

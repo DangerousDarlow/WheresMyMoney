@@ -7,11 +7,11 @@ public interface ICommandProcessor
 
 public interface ICommandProcessor<in T>
 {
-    Task ProcessCommand(T command);
+    void ProcessCommand(T command);
 }
 
 public abstract class CommandProcessor<T> : ICommandProcessor, ICommandProcessor<T>
 {
     public Type ProcessesCommand { get; } = typeof(T);
-    public abstract Task ProcessCommand(T command);
+    public abstract void ProcessCommand(T command);
 }

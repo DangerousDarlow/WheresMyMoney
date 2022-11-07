@@ -1,4 +1,5 @@
 ﻿using WheresMyMoney;
+using WheresMyMoney.Import;
 
 namespace WheresMyMoneyTest;
 
@@ -6,10 +7,9 @@ public abstract class MockCommandProcessor<T> : CommandProcessor<T>
 {
     public IList<T> Commands { get; } = new List<T>();
 
-    public override Task ProcessCommand(T command)
+    public override void ProcessCommand(T command)
     {
         Commands.Add(command);
-        return Task.CompletedTask;
     }
 }
 
