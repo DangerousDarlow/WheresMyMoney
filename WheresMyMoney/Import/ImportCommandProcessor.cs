@@ -6,25 +6,27 @@ namespace WheresMyMoney.Import;
 public class ImportCommandProcessor : CommandProcessor<ImportCommand>
 {
     private readonly IStreamReaderFactory _streamReaderFactory;
+    private readonly ITransactionsRepository _transactionsRepository;
 
-    public ImportCommandProcessor(IStreamReaderFactory streamReaderFactory)
+    public ImportCommandProcessor(IStreamReaderFactory streamReaderFactory, ITransactionsRepository transactionsRepository)
     {
         _streamReaderFactory = streamReaderFactory;
+        _transactionsRepository = transactionsRepository;
     }
 
-    public override void ProcessCommand(ImportCommand command)
+    public override async Task ProcessCommand(ImportCommand command)
     {
         foreach (var path in command.Files)
         {
-            using var streamReader = _streamReaderFactory.Open(path);
-            using var csvReader = new CsvReader(streamReader, CultureInfo.CurrentCulture);
-            
-            // I would have liked to use GetRecordsAsync but I couldn't get it to work
-            var transactions = csvReader.GetRecords<Transaction>();
-            foreach (var (timestamp, description, amount, tags) in transactions)
-            {
-                
-            }
+            var transactions = await ReadTransactionsFromFile(path);
+            await _transactionsRepository.Insert(transactions);
         }
+    }
+
+    private async Task<List<Transaction>> ReadTransactionsFromFile(string path)
+    {
+        using var streamReader = _streamReaderFactory.Open(path);
+        using var csvReader = new CsvReader(streamReader, CultureInfo.CurrentCulture);
+        return await csvReader.GetRecordsAsync<Transaction>().ToListAsync();
     }
 }

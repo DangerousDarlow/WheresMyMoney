@@ -38,7 +38,7 @@ internal static class RootCommandExtensions
         var importCommand = new Command("import", "Import transactions from CSV file");
         importCommand.AddOption(accountOption);
         importCommand.AddArgument(filesArgument);
-        importCommand.SetHandler((account, files) => { commandProcessor.ProcessCommand(new ImportCommand(account, files)); }, accountOption, filesArgument);
+        importCommand.SetHandler(async (account, files) => { await commandProcessor.ProcessCommand(new ImportCommand(account, files)); }, accountOption, filesArgument);
 
         rootCommand.AddCommand(importCommand);
         return rootCommand;
