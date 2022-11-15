@@ -26,6 +26,7 @@ public class PostgresTransactionsRepository : ITransactionsRepository
                 """
                 INSERT INTO transactions(uuid, timestamp, amount, description, added, account)
                 VALUES (@uuid, @timestamp, @amount, @description, @added, @account)
+                ON CONFLICT DO NOTHING
                 """
             );
 
@@ -40,13 +41,6 @@ public class PostgresTransactionsRepository : ITransactionsRepository
         }
 
         var modified = await batch.ExecuteNonQueryAsync();
-        if (modified == transactions.Count)
-        {
-            _logger.LogInformation("Inserted {Modified} transactions", modified);
-        }
-        else
-        {
-            _logger.LogWarning("Inserted {Modified} transactions but expected {Expected}", modified, transactions.Count);
-        }
+        _logger.LogInformation("Inserted {Modified} transactions out of {Total}", modified, transactions.Count);
     }
 }
